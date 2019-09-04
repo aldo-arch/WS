@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="postExample">
+  <head>
+    <script data-require="angular.js@1.2.22" data-semver="1.2.22" src="https://code.angularjs.org/1.2.22/angular.js"></script>
+    <script src="DegaController.js"></script>
+  </head>
+  <body ng-app="postExample" ng-controller="DegasController">
+    <h1 align="center">Afishoni orarin për studentë</h1>
+    <center>
+    <select id="DegaSelector" ng-model="selectedDega"  style="width: 50%;">
+    	<option>- Zgjidhni Degën -</option>
+      <option ng-repeat="Dega in Degas" value="{{Dega.Name}}">{{Dega.Name}}</option>
+    </select><br>
+
+    <select id="vitiSelector" ng-model="selectedViti" style="width: 50%;">
+    	<option>- Zgjidhni Vitin -</option>
+      <option ng-repeat="Viti in Vitis" value="{{Viti.Year}}">{{Viti.Year}}</option>
+    </select><br>
+
+    <select id="ParalelSelector"  ng-model="selectedParalel" style="width: 50%;">
+    	<option>- Zgjidhni Paralelin -</option>
+      <option ng-repeat="Paralel in Paralels" value="{{Paralel.Name}}">{{Paralel.Name}}</option>
+    </select><br>
+</center>
+<br><center><form>
+  <input type="button" ng-click="getOrarByCriteria()" value="Shfaq Orarin">
+</form></center><br>
+
+    <table style="border: 10;width:100%">
+      <tr ng-repeat="y in Table">
+        <td ng-repeat="x in y track by $index">{{x}}</td>
+      </tr>
+    </table>
+  </body>
+
+</html>

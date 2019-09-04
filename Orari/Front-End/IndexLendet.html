@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="postExample">
+  <head>
+    <script data-require="angular.js@1.2.22" data-semver="1.2.22" src="https://code.angularjs.org/1.2.22/angular.js"></script>
+    <script src="MenaxhimLendeshController.js"></script>
+
+
+
+  
+  </head>
+  <body ng-controller="MenaxhimLendeshController">
+    <h1 align="center">Lista e Lendeve</h1>
+
+<br>
+
+    <table style="border: 10;width:100%">
+      <thead>
+        <tr>
+          <td></td>
+             <td>Dega</td>
+                <td>Viti</td>
+                   <td>Lenda</td>
+                      <td>Paraleli</td>
+                         <td>Tipi</td>
+                               <td>Pedagog</td>
+                                  <td>Kapur</td>
+                                     <td>IdTipi</td>
+                                        <td>Zgjedhje</td>
+        </tr>
+      </thead>
+      <tr ng-repeat="y in Lendet">
+        <form ng-submit="Post()" method="POST">
+        <td ><input type="submit" ng-click="Post()"></td>
+        <input type="hidden" ng-model="y.Id" value="{{y.Id}}"  />
+                <td ><input ng-model="y.Dega" type="text" value="{{y.Dega}}"/></td>
+                <td ><input ng-model="y.Viti" type="text" value="{{y.Viti}}"/></td>
+                <td ><input ng-model="y.Lenda" type="text" value="{{y.Lenda}}"/></td>
+                <td ><input ng-model="y.Paraleli" type="text" value="{{y.Paraleli}}"/></td>
+                <td ><input ng-model="y.Tipi" type="text" value="{{y.Tipi}}"/></td>
+                <td ><input ng-model="y.Pedagog" type="text" value="{{y.Pedagog}}"/></td>
+                <td ><input ng-model="y.Kapur" type="text" value="{{y.Kapur}}"/></td>
+                <td ><input ng-model="y.IdTipi" type="text" value="{{y.IdTipi}}"/></td>
+                <td ><input ng-model="y.Zgjedhje" type="text" value="{{y.Zgjedhje}}"/></td>
+      </tr>
+    </form>
+    </table>
+  
+</div>
+
+
+  </body>
+
+</html>

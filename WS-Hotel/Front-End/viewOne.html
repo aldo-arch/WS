@@ -1,0 +1,80 @@
+<html ng-app="myapp1">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.5/angular-route.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"> </script>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+
+</head>
+
+<body>
+    <div ng-app="myapp1" ng-controller="myctrl1">
+        <div class="row" ng-if="!success">
+            <div class="card-body col-md-4">
+                <img class="card-img-top" src="../public/images/room.jpg" alt="Card image cap">
+                <h5 class="card-title">Detaje</h5>
+                <div class="form-group">
+                    <input id="roomId" name="roomId" type="hidden" ng-model="data.room_id">
+                    <p class="card-text">Numri i dhomes: {{data.number_room}}</p>
+                </div>
+                <p class="card-text">Tipi i dhomes: {{data.type}}</p>
+                <p class="card-text">Cmimi i dhomes ne dollar: {{data.price}}</p>
+                <div class="marginForButton"></div>
+                <input type="date" ng-model="start" />date_to
+            <input type="date" ng-model="end" />
+            <div class="marginForButton"></div>
+                <button type="submit" class="btn btn-primary" ng-click="reserve(data, start,end)" name="">Rezervo</button>
+            </div>
+        </div>
+        <div ng-if="success">
+            Rezervimi u krye e sukses.
+            Faleminderit  !!!
+        </div>
+    </div>
+    <script>
+        var app = angular.module('myapp1', []);
+        app.controller('myctrl1', ['$scope', '$http', '$window', '$location', function ($scope, $http, $window, $location) {
+            $scope.success = false
+            var url1 = $location.$$absUrl
+            var index = url1.indexOf("room_id=");
+            var index1 = url1.charAt(66)
+            var index2 = url1.charAt(67)
+            var res = index1.concat(index2);
+
+            // var searchObject = $locationProvider.search();
+            $http.get("http://localhost/dashboard/webservice/master/room/view.php?room_id="+res).then(function (response) {
+                console.log(response);
+                $scope.data = response.data;
+            });
+
+            $scope.reserve = function (content, start, end) {
+            delete content.$$hashKey
+            delete content.number_room
+            delete content.type
+            delete content.price
+            var data = content
+            debugger
+            data.date = start
+            data.date_to = end
+            data.id_room = res
+            delete data.room_id
+            var url = 'http://localhost/dashboard/webservice/master/room/add.php', data = data;
+
+            $http.post(url, data).then(function (response) {
+                $scope.success = true
+            }, function (response) {
+            });
+
+
+
+        }
+
+
+        }]);
+    </script>
+    </form>
+</body>
+
+</html>

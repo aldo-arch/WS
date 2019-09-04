@@ -1,0 +1,12 @@
+c:\users\user\documents\visual studio 2015\Projects\HotelWS\HotelWS\Web\bin\Web.dll.config
+c:\users\user\documents\visual studio 2015\Projects\HotelWS\HotelWS\Web\bin\Web.dll
+c:\users\user\documents\visual studio 2015\Projects\HotelWS\HotelWS\Web\bin\Web.pdb
+c:\users\user\documents\visual studio 2015\Projects\HotelWS\HotelWS\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2015\Projects\HotelWS\HotelWS\Web\obj\Debug\Web.dll
+c:\users\user\documents\visual studio 2015\Projects\HotelWS\HotelWS\Web\obj\Debug\Web.pdb
+C:\Users\user\Desktop\detyra SOAP\New folder\HotelWS\HotelWS\Web\bin\Web.dll.config
+C:\Users\user\Desktop\detyra SOAP\New folder\HotelWS\HotelWS\Web\bin\Web.dll
+C:\Users\user\Desktop\detyra SOAP\New folder\HotelWS\HotelWS\Web\bin\Web.pdb
+C:\Users\user\Desktop\detyra SOAP\New folder\HotelWS\HotelWS\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\detyra SOAP\New folder\HotelWS\HotelWS\Web\obj\Debug\Web.dll
+C:\Users\user\Desktop\detyra SOAP\New folder\HotelWS\HotelWS\Web\obj\Debug\Web.pdb

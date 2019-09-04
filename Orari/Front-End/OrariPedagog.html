@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="postExample">
+  <head>
+    <script data-require="angular.js@1.2.22" data-semver="1.2.22" src="https://code.angularjs.org/1.2.22/angular.js"></script>
+    <script src="PedagogController.js"></script>
+    <script src="PedagogRepoService.js"></script>
+  </head>
+  <body ng-controller="PedagogsController">
+    <h1 align="center">Afishoni orarin për pedagog</h1>
+    <center>
+    <select id="PedagogSelector"   ng-model="selectedPedagog" ng-change="getOrarByPedagog()" ng-options="Pedagog.Name for Pedagog in Pedagogs" style="width: 50%;">
+    </select>
+</center>
+<br>
+
+    <table style="border: 10;width:100%">
+      <tr ng-repeat="y in Table">
+        <td ng-repeat="x in y track by $index">{{x}}</td>
+      </tr>
+    </table>
+
+  </body>
+
+</html>

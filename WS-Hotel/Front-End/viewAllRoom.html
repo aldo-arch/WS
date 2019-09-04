@@ -1,0 +1,52 @@
+<html ng-app="myapp">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.5/angular-route.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"> </script>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div ng-app="myapp" ng-controller="myctrl">
+        <div class="row" ng-repeat="data in myData">
+            <div class="card-body col-md-4">
+                <img class="card-img-top" src="../public/images/room.jpg" alt="Card image cap">
+                <h5 class="card-title">Detaje</h5>
+                <div class="form-group">
+                    <input id="roomId" name="roomId" type="hidden" ng-model="data.room_id">
+                    <p class="card-text">Numri i dhomes: {{data.number_room}}</p>
+                </div>
+                <p class="card-text">Tipi i dhomes: {{data.type}}</p>
+                <p class="card-text">Cmimi i dhomes ne dollar: {{data.price}}</p>
+                <div class="marginForButton"></div>
+                <button type="submit" class="btn btn-primary" ng-click="viewOneRoom(data.room_id)" name="">Shiko
+                    Detajet</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        var app = angular.module('myapp', []);
+        app.controller('myctrl', function ($scope, $http, $window) {
+
+            $http.get("http://localhost/dashboard/webservice/master/room/viewall.php").then(function (response) {
+                console.log(response);
+                $scope.myData = response.data.records;
+            });
+
+            $scope.viewOneRoom = function (id) {
+                var id = id
+                $http.get("http://localhost/dashboard/webservice/master/room/view.php?room_id=" + id).then(function (response) {
+                    console.log(response);
+                    $scope.room = response.data;
+                    $window.location.href = "http://localhost/dashboard/src2/angularHotel/viewOne.html?room_id=" + id
+                });
+            }
+
+
+        });
+    </script>
+    </form>
+</body>
+
+</html>
